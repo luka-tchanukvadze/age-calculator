@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Age calculator app</title>
+
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <main class="container">
+
+    <div class="input-container">
+      
+      <div class="time">
+        <label for="day" class="my-label day-label">DAY</label> <br>
+        <input type="number" name="day" class="day my-time" placeholder="DD">
+
+        <div class="empty-day red">
+          This field is required
+        </div>
+
+        <div class="invalid-day red">
+          Must be a valid day
+        </div>
+      </div>
+      
+      <div class="time">
+        <label for="month" class="my-label month-label">MONTH</label> <br>
+        <input type="number" name="month" class="month my-time" placeholder="MM">
+
+        <div class="empty-month red">
+          This field is required
+        </div>
+
+        <div class="invalid-month red">
+          Must be a valid month
+        </div>
+      </div>
+      
+      <div class="time">
+        <label for="year" class="my-label year-label">YEAR</label> <br>
+        <input type="number" name="year" class="year my-time" placeholder="YYYY">
+        
+        <div class="empty-year red">
+          This field is required
+        </div>
+
+        <div class="invalid-year red">
+          Must be a valid past
+        </div>
+      </div>
+    </div>
+
+
+    <div class="for-line">
+      <div class="line"></div>
+      <div class="for-img">
+        <img class="img" src="./assets/images/icon-arrow.svg" alt="">
+      </div>
+    </div>
+
+
+    <div class="result-container">
+      <div class="results">
+        <p class="year-result for-style">--</p>
+        <p class="text">years</p>
+      </div>
+      <div class="results">
+        <p class="month-result for-style">--</p>
+        <p class="text">months</p>
+      </div>
+      <div class="results">
+        <p class="day-result for-style">--</p>
+        <p class="text">days</p>
+      </div>
+    </div>
+     
+      
+    
+
+  </main>
+  
+
+
+  <script src="index.js"></script>
+</body>
+</html>
