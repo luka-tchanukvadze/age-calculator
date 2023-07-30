@@ -30,8 +30,7 @@ function isInputEmpty(inputValue) {
 }
 
 function error(element, myClass, label) {
-  console.log('element.value:', element.value);
-  console.log('label:', label)
+  
   if (isInputEmpty(element.value)) {
     myClass.style.display = 'block'
     element.classList.add('error-input')
@@ -41,6 +40,7 @@ function error(element, myClass, label) {
     element.classList.remove('error-input')
     label.classList.remove('red-label')
   }
+  console.log('this is checked')
 }
 
 function validateInputs() {
@@ -54,6 +54,7 @@ function validateInputs() {
   const dayValue = parseInt(day.value, 10);
   const monthValue = parseInt(month.value, 10);
   const yearValue = parseInt(year.value, 10);
+  let validator = true
 
   if (dayValue < 1 || dayValue > 31) {
     invalidDay.style.display = 'block'
@@ -63,6 +64,7 @@ function validateInputs() {
     invalidDay.style.display = 'none'
     day.classList.remove('error-input')
     dayLabel.classList.remove('red-label')
+    // validator = false
   }
 
   if (monthValue < 1 || monthValue > 12) {
@@ -73,6 +75,7 @@ function validateInputs() {
     invalidMonth.style.display = 'none'
     month.classList.remove('error-input')
     monthLabel.classList.remove('red-label')
+    // validator = false
   }
 
   if (yearValue < 1900 || yearValue > 2099) {
@@ -83,11 +86,50 @@ function validateInputs() {
     invalidYear.style.display = 'none';
     year.classList.remove('error-input')
     yearLabel.classList.remove('red-label')
+    // validator = false
+  }
+
+  console.log('red color')
+  // return validator
+}
+
+
+
+
+
+const date = new Date();
+let DAY = date.getDate();
+let MONTH = 1 + date.getMonth();
+let YEAR = date.getFullYear();
+
+const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+function handleSubmit(e) {
+  // e.preventDefault();
+  // if (validateInputs()) {
+  if (true) {
+    if (day.value > DAY) {
+      day = day + months[month - 1];
+      month = month - 1;
+    }
+    if (month.value > MONTH) {
+      MONTH = MONTH + 12;
+      YEAR = YEAR - 1;
+    }
+
+    const d = DAY - day.value;
+    const m = MONTH - month.value;
+    const y = YEAR - year.value;
+
+    console.log(d)
+
+    dayResult.textContent = d;
+    monthResult.textContent = m;
+    yearResult.textContent = y;
   }
 }
 
 
 submit.addEventListener('click', () => {
-  validateInputs()
+  handleSubmit()
 })
-
